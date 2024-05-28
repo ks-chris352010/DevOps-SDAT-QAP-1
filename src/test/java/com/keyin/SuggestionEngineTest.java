@@ -22,7 +22,7 @@ public class SuggestionEngineTest {
 
     @Test
     public void testGenerateSuggestions() throws Exception {
-        suggestionEngine.loadDictionaryData(Paths.get(ClassLoader.getSystemResource("words.txt").toURI()));
+        suggestionEngine.loadDictionaryData(Paths.get(ClassLoader.getSystemResource("words.txt").getPath()));
 
 //        Assertions.assertTrue(testInstanceSame);
         Assertions.assertTrue(suggestionEngine.generateSuggestions("hellw").contains("hello"));
@@ -30,7 +30,7 @@ public class SuggestionEngineTest {
 
     @Test
     public void testGenerateSuggestionsFail() throws Exception {
-        suggestionEngine.loadDictionaryData( Paths.get( ClassLoader.getSystemResource("words.txt").toURI()));
+        suggestionEngine.loadDictionaryData( Paths.get( ClassLoader.getSystemResource("words.txt").getPath()));
 
         testInstanceSame = true;
         Assertions.assertTrue(testInstanceSame);

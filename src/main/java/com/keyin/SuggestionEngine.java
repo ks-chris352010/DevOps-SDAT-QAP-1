@@ -44,7 +44,7 @@ public class SuggestionEngine {
      * @throws IOException a any file loading problems
      */
     public void loadDictionaryData(Path dictionaryFile) throws IOException {
-        Stream.of(new String(Files.readAllBytes( dictionaryFile )).toLowerCase().split("[\\r\\n]+")).forEach( (word) ->{
+        Stream.of(new String(Files.readAllBytes( dictionaryFile )).toLowerCase().split("[\n]+")).forEach( (word) ->{
             getWordSuggestionDB().compute( word, (k, v) -> v == null ? 1 : v + 1  );
         });
     }
