@@ -1,4 +1,5 @@
-name: workflow.yml
+name: Maven CI
+
 on:
   push:
     branches:
@@ -16,6 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '20'
+          distribution: 'adopt'
 
       - name: Build with Maven
         run: mvn -B clean verify
