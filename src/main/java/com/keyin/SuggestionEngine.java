@@ -44,6 +44,7 @@ public class SuggestionEngine {
      * @throws IOException a any file loading problems
      */
     public void loadDictionaryData(Path dictionaryFile) throws IOException {
+        // Changed regex string pattern from "\n" -> "[\\r\\n]+" for compatibility reasons:
         Stream.of(new String(Files.readAllBytes( dictionaryFile )).toLowerCase().split("[\\r\\n]+")).forEach( (word) ->{
             getWordSuggestionDB().compute( word, (k, v) -> v == null ? 1 : v + 1  );
         });
